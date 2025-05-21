@@ -245,10 +245,10 @@ function constructJsonlString(metadata, messages) {
 }
 
 // 扩展名和设置初始化
-const PLUGIN_NAME = 'chat-history-backupQ6';
+const PLUGIN_NAME = 'chat-history-backupY3';
 const DEFAULT_SETTINGS = {
     maxEntityCount: 3,        // 最多保存几个不同角色/群组的备份 (新增)
-    maxBackupsPerEntity: 1,   // 每个角色/群组最多保存几个备份 (新增)
+    maxBackupsPerEntity: 3,   // 每个角色/群组最多保存几个备份 (新增)
     backupDebounceDelay: 1500, // 防抖延迟时间 (毫秒)
     debug: true, // 调试模式
 };
@@ -1069,7 +1069,7 @@ async function performManualBackup() {
     console.log('[聊天自动备份] Performing manual backup (calling conditional function)');
     try {
          await performBackupConditional(BACKUP_TYPE.STANDARD, true); // 手动备份使用强制保存
-         toastr.success('Manual backup of current chat completed', 'Chat Auto Backup');
+         toastr.success('恢复备份成功！', '聊天自动备份');
     } catch (error) {
          console.error('[聊天自动备份] Manual backup failed:', error);
     }
